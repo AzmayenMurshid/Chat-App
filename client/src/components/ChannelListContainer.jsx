@@ -1,8 +1,8 @@
 import React from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
-import COokies from 'universal-cookie';
-import HospitalIcon from '../assets/hospital.png';
+import Cookies from 'universal-cookie';
+import HospitalIcon from '../assets/hospital.png'; /*TODO: Change Icon */
 import LogoutIcon from '../assets/logout.png'
 
 
@@ -23,17 +23,17 @@ const SideBar = () => (
 
 const CompanyHeader = () => (
     <div className='channel-list__header'>
-        <p className='channel-list__header__text'>Text Field</p>
+        <p className='channel-list__header__text'>Texter</p>
     </div>
-        
 )
 
 const ChannelListContainer = () => {
   return (
     <>
         <SideBar />
-        <div className='channel-list-__list__wrapper'>
+        <div className='channel-list__list__wrapper'>
             <CompanyHeader />
+            <ChannelSearch />
         </div>
     </>
   )
