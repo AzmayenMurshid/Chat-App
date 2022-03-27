@@ -2,7 +2,6 @@ import React from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
 
-
 import Cookies from 'universal-cookie';
 import HospitalIcon from '../assets/hospital.png'; /*TODO: Change Icon */
 import LogoutIcon from '../assets/logout.png'
@@ -30,8 +29,8 @@ const CompanyHeader = () => (
     </div>
 )
 
-const ChannelListContainer = () => {
-    const logout = () => {
+const ChannelListContainer = ({isCreating, setIsCreating, setCreateType, setIsEditing}) => {
+     const logout = () => {
         cookies.remove("token");
         cookies.remove('username');
         cookies.remove('fullName');
@@ -55,12 +54,20 @@ const ChannelListContainer = () => {
                     <TeamChannelList 
                         { ... listProps}
                         type='team'
+                        isCreating={isCreating}
+                        setIsCreating={setIsCreating}
+                        setCreateType={setCreateType} 
+                        setIsEditing={setIsEditing}
                     />
                 )}
                 Preview={(PreviewProps) => (
                     <TeamChannelPreview 
                         { ... PreviewProps}
                         type='team'
+                        isCreating={isCreating}
+                        setIsCreating={setIsCreating}
+                        setCreateType={setCreateType} 
+                        setIsEditing={setIsEditing}
                     />
                 )}
             />
